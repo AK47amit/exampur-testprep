@@ -69,9 +69,40 @@ export default function ExampurTestPrep() {
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
 
+  // All Courses Mini Grid Items (Exact Testmentor SS1 & SS2 Style)
+  const allExamMiniCourses = [
+    { title: "KVS JSA Typing Practice Test Series", icon: "🏫" },
+    { title: "Subordinate Courts Punjab & Haryana (S.S.S.C.) Clerk Typing", icon: "⚖️" },
+    { title: "DSSSB Junior Assistant / LDC / DASS IV Typing Tests", icon: "🏛️" },
+    { title: "UPSSSC Junior Assistant Typing Skill Test Series", icon: "📜" },
+    { title: "NCERT LDC English Typing Tests", icon: "📚" },
+    { title: "Delhi High Court Junior Judicial Assistant (JJA)", icon: "⚖️" },
+    { title: "UP Police (UPPRPB) SI, ASI, Computer Operator", icon: "🛡️" },
+    { title: "SSC CHSL 2024 Typing Test Series", icon: "💻" },
+    { title: "Delhi Police Typing Course Test Series", icon: "🚨" },
+    { title: "DDA JSA Typing Practice Test Series", icon: "🏢" },
+    { title: "SSC CGL Typing Course Test Series", icon: "📊" },
+    { title: "DSSSB JJA / PA / SPA Typing Test Series", icon: "🏛️" },
+    { title: "RRB NTPC / GDCE Typing Test Series", icon: "🚂" },
+    { title: "CSIR JSA English Typing Test Series", icon: "🔬" },
+    { title: "ALLAHABAD HC JA & Paid Apprentices & Steno", icon: "⚖️" },
+    { title: "High Court ALLAHABAD RO / ARO Typing Test Series", icon: "⚖️" },
+    { title: "NVS Junior Secretariat Assistant Typing Tests", icon: "🏫" },
+    { title: "Delhi Police AWO TPO Typing Test Course", icon: "🚨" },
+    { title: "BSF Head Constable (Ministerial) Typing Test Courses", icon: "🎖️" },
+    { title: "CRPF HCM typing paragraph pdf (Download 800+)", icon: "📄" },
+    { title: "Supreme Court Junior Court Assistant (JCA) Typing tests", icon: "🏛️" },
+    { title: "JNU Junior Assistant Typing Test Course", icon: "🎓" },
+    { title: "EPFO Social Security Assistant (SSA) Typing Course", icon: "🏦" },
+    { title: "AIIMS CRE English Typing Skill Test", icon: "🏥" },
+    { title: "CBSE English Typing Skill Test", icon: "📖" },
+    { title: "Delhi High Court PA SPA Typing Tests", icon: "⚖️" },
+    { title: "DRDO Assistant Typing Test Course", icon: "🚀" }
+  ];
+
   const categories = ['All', 'DSSSB', 'UPSSSC', 'SSC', 'HCM', 'Delhi', 'UP', 'Court'];
 
-  const courses = [
+  const detailedCourses = [
     { title: "KVS JSA Typing Practice Test Series", tests: "800+ Tests", time: "70 Days", price: "₹159", freePrice: "₹79", tag: "Popular", icon: "🏫", users: "14,809" },
     { title: "Subordinate Courts Punjab & Haryana (S.S.S.C.) Clerk Typing", tests: "900+ Tests", time: "70 Days", price: "₹159", freePrice: "₹89", tag: "High Demand", icon: "⚖️", users: "6,730" },
     { title: "DSSSB Junior Assistant / LDC / DASS IV Typing Tests", tests: "700+ Tests", time: "70 Days", price: "₹159", freePrice: "Free Demo", tag: "Exam Oriented", icon: "🏛️", users: "17,430" },
@@ -81,12 +112,9 @@ export default function ExampurTestPrep() {
     { title: "Delhi High Court Junior Judicial Assistant (JJA)", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "Court Special", icon: "⚖️", users: "5,896" },
     { title: "UP Police (UPPRPB) SI, ASI, Computer Operator", tests: "300+ Tests", time: "20 Days", price: "₹59", freePrice: "Free Tests", tag: "Police Dept", icon: "🛡️", users: "4,120" },
     { title: "ALLAHABAD High Court JA & Paid Apprentices & Steno", tests: "1000+ Tests", time: "60 Days", price: "₹159", freePrice: "Free Demo", tag: "Legal Passage", icon: "⚖️", users: "387" },
-    { title: "Supreme Court Junior Court Assistant (JCA)", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "NTA Interface", icon: "🏛️", users: "342" },
-    { title: "BSF Head Constable (Ministerial) Typing Tests", tests: "270+ Tests", time: "15 Days", price: "₹59", freePrice: "Free", tag: "Defence", icon: "🎖️", users: "7,648" },
-    { title: "EPFO Social Security Assistant (SSA) Typing Course", tests: "500+ Tests", time: "30 Days", price: "₹99", freePrice: "Free", tag: "Banking", icon: "🏦", users: "5,133" },
   ];
 
-  const filteredCourses = courses.filter(course => course.title.toLowerCase().includes(searchQuery.toLowerCase()));
+  const filteredDetailedCourses = detailedCourses.filter(course => course.title.toLowerCase().includes(searchQuery.toLowerCase()));
 
   return (
     <div className="min-h-screen bg-[#fdfbf7] font-sans text-slate-800">
@@ -108,7 +136,7 @@ export default function ExampurTestPrep() {
             </div>
           </div>
 
-          {/* Social Icons (Only Icons, No Text) with Universal WhatsApp Underline Hover */}
+          {/* Social Icons (Only Icons, No Text) */}
           <div className="hidden lg:flex items-center gap-4">
             <a href="https://youtube.com" target="_blank" rel="noreferrer" className="relative group p-2.5 rounded-full bg-red-100 text-red-600 hover:bg-red-600 hover:text-white shadow-sm transition transform hover:scale-110">
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -131,7 +159,7 @@ export default function ExampurTestPrep() {
             </a>
           </div>
 
-          {/* Right Auth Actions with Universal Hover Effect */}
+          {/* Right Auth Actions */}
           <div className="hidden md:flex items-center gap-3">
             <button className="relative group px-5 py-2.5 rounded-xl border-2 border-amber-500 text-amber-700 font-extrabold text-sm hover:bg-amber-500 hover:text-white transition shadow-sm overflow-hidden">
               <span className="relative z-10">Login</span>
@@ -152,11 +180,6 @@ export default function ExampurTestPrep() {
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#fdfbf7] border-b border-amber-200 px-4 pt-3 pb-6 space-y-3">
-            <div className="flex justify-center gap-4 py-2">
-              <a href="#" className="p-2.5 bg-red-100 text-red-600 rounded-full"><svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-              <a href="#" className="p-2.5 bg-sky-100 text-sky-600 rounded-full"><Send className="w-4 h-4"/></a>
-              <a href="#" className="p-2.5 bg-pink-100 text-pink-600 rounded-full"><svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
-            </div>
             <div className="pt-2 flex flex-col gap-2">
               <button className="w-full py-2.5 rounded-xl border-2 border-amber-500 text-amber-700 font-bold text-sm">Login</button>
               <button className="w-full py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold text-sm shadow-md">Create Free Account</button>
@@ -242,8 +265,35 @@ export default function ExampurTestPrep() {
         </div>
       </section>
 
-      {/* Courses Section */}
-      <section id="courses" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* ======================================================== */}
+      {/* ALL COURSES MINI CARDS GRID (EXACT SS1 & SS2 TESTMENTOR STYLE) */}
+      {/* ======================================================== */}
+      <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8">
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">All Courses</h2>
+          <p className="text-sm text-slate-500 font-medium">Explore all available exam typing test series</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          {allExamMiniCourses.map((exam, idx) => (
+            <div 
+              key={idx} 
+              onClick={() => alert(`Opening ${exam.title}`)}
+              className="bg-white rounded-2xl p-5 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-500 transition duration-300 flex flex-col items-center text-center cursor-pointer group transform hover:-translate-y-1"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-3xl mb-3 shadow-inner group-hover:scale-110 transition duration-300">
+                {exam.icon}
+              </div>
+              <h4 className="text-xs font-bold text-slate-800 group-hover:text-amber-600 transition line-clamp-3 leading-snug">
+                {exam.title}
+              </h4>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Detailed Courses & Search Section */}
+      <section id="courses" className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto mb-12 bg-white p-2 rounded-2xl shadow-md border border-amber-200 flex items-center gap-2">
           <div className="pl-3 text-amber-600"><Search className="w-5 h-5" /></div>
           <input 
@@ -257,7 +307,7 @@ export default function ExampurTestPrep() {
 
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">All Courses</h2>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Popular Featured Courses</h2>
             <p className="text-sm text-slate-500 font-medium">Select your target exam and start practicing right away</p>
           </div>
 
@@ -280,7 +330,7 @@ export default function ExampurTestPrep() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCourses.map((course, idx) => (
+          {filteredDetailedCourses.map((course, idx) => (
             <div key={idx} className="bg-white rounded-2xl p-6 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-400 transition duration-300 flex flex-col justify-between group">
               <div>
                 <div className="flex items-center justify-between mb-4">
