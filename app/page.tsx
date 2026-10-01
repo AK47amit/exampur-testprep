@@ -258,7 +258,7 @@ export default function ExampurTestPrep() {
       </section>
 
       {/* ======================================================== */}
-      {/* ALL COURSES MINI CARDS (SHARP EDGES + SCALE UP + ORANGE BAR) */}
+      {/* ALL COURSES MINI CARDS (SHARP RECTANGULAR EDGES + ORANGE GLOW SHADOW) */}
       {/* ======================================================== */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
@@ -271,12 +271,12 @@ export default function ExampurTestPrep() {
             <div 
               key={idx} 
               onClick={() => alert(`Opening ${exam.title}`)}
-              className="relative bg-white rounded-xl p-5 border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group transform hover:-translate-y-2 hover:scale-105 overflow-hidden"
+              className="relative bg-white rounded-none p-5 border-2 border-amber-200/90 shadow-sm hover:shadow-2xl hover:shadow-amber-500/30 hover:border-amber-500 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group transform hover:-translate-y-2 hover:scale-105 overflow-hidden"
             >
               {/* Orange Horizontal Bottom Line on Hover */}
               <span className="absolute bottom-0 left-0 w-full h-1.5 bg-amber-500 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
 
-              <div className="w-14 h-14 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-3xl mb-3 shadow-inner group-hover:scale-110 transition duration-300">
+              <div className="w-14 h-14 rounded-none bg-amber-50 border border-amber-200 flex items-center justify-center text-3xl mb-3 shadow-inner group-hover:scale-110 transition duration-300">
                 {exam.icon}
               </div>
               <h4 className="text-xs font-bold text-slate-800 group-hover:text-amber-700 transition line-clamp-3 leading-snug">
