@@ -76,7 +76,7 @@ export default function ExampurTestPrep() {
     { title: "UPSSSC Junior Assistant Typing Skill Test Series", icon: "📜" },
     { title: "NCERT LDC English Typing Tests", icon: "📚" },
     { title: "Delhi High Court Junior Judicial Assistant (JJA)", icon: "⚖️" },
-    { title: "UP Police (UPPRPB) SI, ASI, Computer Operator", icon: "🛡️️" },
+    { title: "UP Police (UPPRPB) SI, ASI, Computer Operator", icon: "🛡️" },
     { title: "SSC CHSL 2024 Typing Test Series", icon: "💻" },
     { title: "Delhi Police Typing Course Test Series", icon: "🚨" },
     { title: "DDA JSA Typing Practice Test Series", icon: "🏢" },
@@ -90,7 +90,7 @@ export default function ExampurTestPrep() {
     { title: "Delhi Police AWO TPO Typing Test Course", icon: "🚨" },
     { title: "BSF Head Constable (Ministerial) Typing Test Courses", icon: "🎖️" },
     { title: "CRPF HCM typing paragraph pdf (Download 800+)", icon: "📄" },
-    { title: "Supreme Court Junior Court Assistant (JCA) Typing tests", icon: "🏛️️" },
+    { title: "Supreme Court Junior Court Assistant (JCA) Typing tests", icon: "🏛️" },
     { title: "JNU Junior Assistant Typing Test Course", icon: "🎓" },
     { title: "EPFO Social Security Assistant (SSA) Typing Course", icon: "🏦" },
     { title: "AIIMS CRE English Typing Skill Test", icon: "🏥" },
@@ -104,7 +104,7 @@ export default function ExampurTestPrep() {
   const detailedCourses = [
     { title: "KVS JSA Typing Practice Test Series", tests: "800+ Tests", time: "70 Days", price: "₹159", freePrice: "₹79", tag: "Popular", icon: "🏫", users: "14,809" },
     { title: "Subordinate Courts Punjab & Haryana (S.S.S.C.) Clerk Typing", tests: "900+ Tests", time: "70 Days", price: "₹159", freePrice: "₹89", tag: "High Demand", icon: "⚖️", users: "6,730" },
-    { title: "DSSSB Junior Assistant / LDC / DASS IV Typing Tests", tests: "700+ Tests", time: "70 Days", price: "₹159", freePrice: "Free Demo", tag: "Exam Oriented", icon: "🏛️️", users: "17,430" },
+    { title: "DSSSB Junior Assistant / LDC / DASS IV Typing Tests", tests: "700+ Tests", time: "70 Days", price: "₹159", freePrice: "Free Demo", tag: "Exam Oriented", icon: "🏛️", users: "17,430" },
     { title: "UPSSSC Junior Assistant Typing Skill Test Series", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "Bilingual", icon: "📜", users: "69,577" },
     { title: "SSC CGL Typing Course Test Series", tests: "1000+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "TCS Interface", icon: "📊", users: "10,563" },
     { title: "SSC CHSL 2024 Typing Test Series", tests: "900+ Tests", time: "100 Days", price: "₹239", freePrice: "Free", tag: "Best Seller", icon: "💻", users: "2,797" },
@@ -257,9 +257,7 @@ export default function ExampurTestPrep() {
         </div>
       </section>
 
-      {/* ======================================================== */}
-      {/* ALL COURSES MINI CARDS (EXACT TESTMENTOR STYLE: SHARP, NO BORDER, SOFT SHADOW HOVER) */}
-      {/* ======================================================== */}
+      {/* ALL COURSES MINI CARDS (EXACT TESTMENTOR STYLE) */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">All Courses</h2>
@@ -273,7 +271,6 @@ export default function ExampurTestPrep() {
               onClick={() => alert(`Opening ${exam.title}`)}
               className="relative bg-white rounded-none p-5 shadow-sm hover:shadow-2xl hover:shadow-slate-300 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group transform hover:-translate-y-2 hover:scale-105 overflow-hidden"
             >
-              {/* Orange Horizontal Bottom Line on Hover */}
               <span className="absolute bottom-0 left-0 w-full h-1.5 bg-amber-500 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
 
               <div className="w-14 h-14 rounded-none bg-amber-50 border border-amber-100 flex items-center justify-center text-3xl mb-3 shadow-inner group-hover:scale-110 transition duration-300">
@@ -284,6 +281,74 @@ export default function ExampurTestPrep() {
               </h4>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* EXACT TESTMENTOR YEARLY PASS SECTION (PLACED RIGHT AFTER MINI CARDS) */}
+      {/* ======================================================== */}
+      <section id="passes" className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-[#eef7ff] via-[#fef6eb] to-[#fff3e0] rounded-3xl p-8 sm:p-12 shadow-xl border border-amber-200/80 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
+          
+          <div className="max-w-2xl">
+            <span className="inline-block bg-[#e0f2fe] text-[#0284c7] font-extrabold text-xs uppercase px-3.5 py-1.5 rounded-full mb-4 tracking-wider">
+              Testmentor Yearly Pass
+            </span>
+            <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
+              One pass for serious typing preparation.
+            </h2>
+            <p className="text-slate-600 text-sm sm:text-base font-medium mb-6 leading-relaxed">
+              Unlock all eligible premium typing courses for a full year, keep your results in one account, and practice across exams without buying course by course.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+              <div className="bg-white/80 backdrop-blur p-4 rounded-2xl border border-amber-100 shadow-sm flex items-center gap-3">
+                <div className="p-2.5 bg-amber-100 text-amber-700 rounded-xl"><FileText className="w-5 h-5"/></div>
+                <div>
+                  <div className="text-lg font-black text-slate-900">50+</div>
+                  <div className="text-xs text-slate-500 font-semibold">All premium courses</div>
+                </div>
+              </div>
+
+              <div className="bg-white/80 backdrop-blur p-4 rounded-2xl border border-amber-100 shadow-sm flex items-center gap-3">
+                <div className="p-2.5 bg-blue-100 text-blue-700 rounded-xl"><BookOpen className="w-5 h-5"/></div>
+                <div>
+                  <div className="text-lg font-black text-slate-900">365 days</div>
+                  <div className="text-xs text-slate-500 font-semibold">Full validity</div>
+                </div>
+              </div>
+
+              <div className="bg-white/80 backdrop-blur p-4 rounded-2xl border border-amber-100 shadow-sm flex items-center gap-3">
+                <div className="p-2.5 bg-emerald-100 text-emerald-700 rounded-xl"><Users className="w-5 h-5"/></div>
+                <div>
+                  <div className="text-lg font-black text-slate-900">30 Lakhs+</div>
+                  <div className="text-xs text-slate-500 font-semibold">Typing tests served</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm font-bold text-slate-700">
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0"/> Unlock all eligible typing exam courses</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0"/> Practice Hindi and English exam-style tests</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0"/> Saved results, analytics, and progress history</span>
+              <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0"/> Free speed booster lessons included</span>
+            </div>
+          </div>
+
+          <div className="bg-white text-slate-900 p-8 rounded-2xl shadow-xl text-center shrink-0 w-full sm:w-80 border border-amber-100">
+            <span className="inline-block bg-amber-500 text-white text-[11px] font-black uppercase px-3 py-1 rounded-full mb-3 tracking-wider shadow-sm">
+              Best Yearly Value
+            </span>
+            <span className="text-xs uppercase font-extrabold text-slate-400 tracking-wider block">starts at</span>
+            <div className="text-4xl sm:text-5xl font-black text-slate-900 my-1">₹179</div>
+            <span className="text-xs text-slate-500 font-medium block mb-6">upto 365 days</span>
+            <button className="relative group w-full bg-[#38bdf8] hover:bg-[#0ea5e9] text-white font-bold py-3.5 rounded-xl shadow-lg transition overflow-hidden">
+              <span className="relative z-10">Explore All Passes</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-200 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
+            </button>
+            <span className="text-[11px] text-slate-400 mt-3 block">First pass purchase may get 15% off when eligible.</span>
+          </div>
+
         </div>
       </section>
 
@@ -370,38 +435,6 @@ export default function ExampurTestPrep() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* Yearly Pass Section */}
-      <section id="passes" className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-red-700 via-amber-600 to-yellow-600 rounded-3xl p-8 sm:p-12 text-white shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 border border-amber-400/30">
-          <div>
-            <div className="inline-block bg-yellow-300 text-slate-900 text-xs font-black uppercase px-3 py-1 rounded-full mb-3 tracking-wider">
-              Best Yearly Value
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-3">
-              One Exampur Pass for Serious Typing Preparation
-            </h2>
-            <p className="text-amber-100 max-w-xl text-sm sm:text-base font-normal">
-              Unlock all eligible premium typing courses for a full year. Keep your results, analytics, and speed history in one unified dashboard.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-6 text-xs sm:text-sm font-semibold">
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> 50+ Premium Courses</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> 365 Days Full Validity</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> Speed Booster Included</span>
-            </div>
-          </div>
-          <div className="bg-white text-slate-900 p-8 rounded-2xl shadow-xl text-center shrink-0 w-full sm:w-80 border-2 border-amber-400">
-            <span className="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Starts at</span>
-            <div className="text-4xl sm:text-5xl font-black text-amber-600 my-1">₹179</div>
-            <span className="text-xs text-slate-500 font-medium block mb-6">Valid upto 365 Days (All Exams Included)</span>
-            <button className="relative group w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition overflow-hidden">
-              <span className="relative z-10">Explore All Passes</span>
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
-            </button>
-            <span className="text-[11px] text-slate-400 mt-3 block">First pass purchase gets extra 15% off</span>
-          </div>
         </div>
       </section>
 
