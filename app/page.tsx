@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   Search, Users, BookOpen, CheckCircle2, 
   ArrowRight, Terminal, FileText, Menu, X, UserCheck, ChevronLeft, ChevronRight, 
-  Send 
+  Send, Compass, Check, ExternalLink 
 } from 'lucide-react';
 
 export default function ExampurTestPrep() {
@@ -88,7 +88,7 @@ export default function ExampurTestPrep() {
     { title: "High Court ALLAHABAD RO / ARO Typing Test Series", icon: "⚖️" },
     { title: "NVS Junior Secretariat Assistant Typing Tests", icon: "🏫" },
     { title: "Delhi Police AWO TPO Typing Test Course", icon: "🚨" },
-    { title: "BSF Head Constable (Ministerial) Typing Test Courses", icon: "🎖️" },
+    { title: "BSF Head Constable (Ministerial) Typing Test Courses", icon: "🎖️️" },
     { title: "CRPF HCM typing paragraph pdf (Download 800+)", icon: "📄" },
     { title: "Supreme Court Junior Court Assistant (JCA) Typing tests", icon: "🏛️" },
     { title: "JNU Junior Assistant Typing Test Course", icon: "🎓" },
@@ -99,9 +99,33 @@ export default function ExampurTestPrep() {
     { title: "DRDO Assistant Typing Test Course", icon: "🚀" }
   ];
 
+  // Exam typing guides items (For SS2 Section)
+  const typingGuides = [
+    { tag: "Free practice", title: "Typing Test", desc: "Free online typing practice with speed, accuracy and exam-focused next steps." },
+    { tag: "Trending", title: "10 Minute Typing Test", desc: "High-demand timed typing practice for 300 to 400 word exam-style passages." },
+    { tag: "Stamina", title: "15 Minute Typing Test", desc: "Longer timed typing practice for candidates preparing beyond daily 10-minute drills." },
+    { tag: "Stamina", title: "20 Minute Typing Test", desc: "Long-form speed and accuracy practice for fatigue control and paragraph consistency." },
+    { tag: "Practice format", title: "Paper to Screen Typing", desc: "Source-copy typing practice for hard-copy style and paper-to-screen typing searches." },
+    { tag: "Govt exams", title: "Competitive Exam Typing", desc: "One route into UPSSSC, KVS, DSSSB, Railway, court and clerk typing practice." },
+    { tag: "UPSSSC", title: "UPSSSC Hindi Typing Test", desc: "Hindi typing practice for junior assistant and clerk candidates with mistake review." },
+    { tag: "UPSSSC", title: "UPSSSC English Typing Test", desc: "English timed typing practice for UPSSSC candidates with speed and accuracy tracking." },
+    { tag: "KVS", title: "KVS English Typing Test", desc: "KVS JSA, LDC and assistant English typing practice with timed mock-test guidance." },
+    { tag: "SSC", title: "SSC Typing Test", desc: "One guide for SSC CGL, CHSL and other SSC skill-test typing practice." },
+    { tag: "SSC CHSL", title: "SSC CHSL Typing Test", desc: "Speed targets, free demo practice and mistake analysis for CHSL typing preparation." },
+    { tag: "SSC CGL", title: "SSC CGL Typing Test", desc: "Exact-match CGL typing and DEST practice with timed mock-test guidance." },
+    { tag: "SSC CGL", title: "SSC CGL Typing Paragraph", desc: "Paragraph practice for CGL, DEST-style typing and previous-year style passage searches." },
+    { tag: "SSC CHSL", title: "SSC CHSL Typing Paragraph", desc: "CHSL paragraph practice for LDC/JSA candidates using 10-minute timed drills." },
+    { tag: "DSSSB", title: "DSSSB Typing Test", desc: "LDC, JSA and junior assistant typing practice with post-wise preparation links." },
+    { tag: "Railway", title: "RRB NTPC Typing Test", desc: "Railway typing practice for English and Hindi timed test preparation." },
+    { tag: "Court", title: "Court Typing Test", desc: "High Court, legal and clerk-style typing practice for formal passages." },
+    { tag: "Court", title: "Legal Typing Test", desc: "Legal, judgement and court clerk typing practice with accuracy-focused guidance." },
+    { tag: "Paragraph", title: "Typing Test Paragraph", desc: "Paragraph-based practice for 200, 400, 500 and 600 word typing tests." },
+    { tag: "Hindi", title: "Hindi Typing Test", desc: "Hindi typing practice focused on character accuracy, matras and exam readiness." },
+    { tag: "Hindi", title: "Hindi Typing Paragraph", desc: "Hindi paragraph practice for matra accuracy, spacing and timed exam preparation." }
+  ];
+
   const categories = ['All', 'DSSSB', 'UPSSSC', 'SSC', 'HCM', 'Delhi', 'UP', 'Court'];
 
-  // All 27 detailed courses with proper categories for filtering sync
   const detailedCourses = [
     { title: "KVS JSA Typing Practice Test Series", category: "Delhi", tests: "800+ Tests", time: "70 Days", price: "₹159", freePrice: "₹79", tag: "Popular", icon: "🏫", users: "14,809" },
     { title: "Subordinate Courts Punjab & Haryana (S.S.S.C.) Clerk Typing", category: "Court", tests: "900+ Tests", time: "70 Days", price: "₹159", freePrice: "₹89", tag: "High Demand", icon: "⚖️", users: "6,730" },
@@ -132,7 +156,6 @@ export default function ExampurTestPrep() {
     { title: "DRDO Assistant Typing Test Course", category: "HCM", tests: "600+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "Defence DRDO", icon: "🚀", users: "4,600" }
   ];
 
-  // Filter logic based on both search query and selected category tab
   const filteredDetailedCourses = detailedCourses.filter(course => {
     const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || course.category === selectedCategory;
@@ -466,21 +489,214 @@ export default function ExampurTestPrep() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12 border-t border-amber-500/30 mt-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-          <div>
-            <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
-              <div className="w-8 h-8 rounded-lg overflow-hidden border border-amber-400 bg-white flex items-center justify-center">
-                <img src="/exampur logo 2.jpg" alt="Logo" className="w-full h-full object-cover" />
+      {/* ======================================================== */}
+      {/* SECTION 1: FREE ONLINE TYPING TESTS FOR GOVERNMENT EXAMS */}
+      {/* ======================================================== */}
+      <section className="py-16 bg-gradient-to-b from-[#fdfbf7] to-[#f4efe6] border-t border-amber-200/60">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="bg-gradient-to-br from-[#f8f5ee] to-[#ede6d8] rounded-3xl p-8 sm:p-14 border border-amber-200/80 shadow-lg relative overflow-hidden">
+            
+            <div className="max-w-3xl mb-10">
+              <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 text-xs font-bold px-3.5 py-1.5 rounded-full mb-4 shadow-sm border border-emerald-200">
+                <Compass className="w-3.5 h-3.5 text-emerald-600" />
+                <span>Built for Indian government exam typing tests</span>
               </div>
-              <span className="text-lg font-bold">Exampur TestPrep</span>
+              <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-4 leading-tight">
+                Free Online Typing Tests for Government Exams
+              </h2>
+              <p className="text-slate-600 text-base sm:text-lg font-medium leading-relaxed">
+                Prepare for SSC, CHSL, CGL, Railway, DSSSB, UPSSSC, KVS, all Banking and state typing exams with English and Hindi passages, real exam like environment, exam-wise rules, result history and affordable practice plans.
+              </p>
             </div>
-            <p className="text-xs text-slate-400">The ultimate destination for government exam typing practice & skill tests.</p>
+
+            <div className="flex flex-wrap gap-4 mb-12">
+              <button onClick={() => alert('Starting SSC CGL Typing Test Demo')} className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm shadow-lg shadow-blue-600/25 transition transform hover:-translate-y-0.5">
+                Prepare for the SSC CGL Typing Test
+              </button>
+              <button onClick={() => window.scrollTo({ top: 800, behavior: 'smooth' })} className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-800 border-2 border-amber-400 font-bold text-sm shadow-sm transition">
+                View Exam Courses
+              </button>
+            </div>
+
+            {/* 3 Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <div className="bg-white rounded-2xl p-6 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-400 transition duration-300 group">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition">
+                  <FileText className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-black text-slate-900 mb-2 group-hover:text-amber-600 transition">Exam-wise passages</h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                  Practice with courses mapped to popular government exams.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-400 transition duration-300 group">
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 text-amber-600 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition">
+                  <Terminal className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-black text-slate-900 mb-2 group-hover:text-amber-600 transition">Hindi and English</h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                  Use language and font settings that match real test needs.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-400 transition duration-300 group">
+                <div className="w-12 h-12 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-4 shadow-inner group-hover:scale-110 transition">
+                  <CheckCircle2 className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg font-black text-slate-900 mb-2 group-hover:text-amber-600 transition">Analyse & Improve</h3>
+                <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                  Get detailed result history, know your mistakes and improve every day.
+                </p>
+              </div>
+
+            </div>
+
           </div>
-          <div className="text-xs text-slate-500">
-            &copy; {new Date().getFullYear()} Exampur Edtech Pvt Ltd. All rights reserved.
+
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* SECTION 2: EXAM TYPING GUIDES (FIND THE RIGHT TYPING TEST) */}
+      {/* ======================================================== */}
+      <section className="py-16 bg-[#fdfbf7]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between mb-10 gap-6">
+            <div>
+              <span className="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+                Exam Typing Guides
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                Find the right typing test page faster
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 font-medium mt-1">
+                Quick reference pages for high-intent government exam typing questions, built with answer-first summaries, rules, free practice links and related exam paths.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-2xl border border-amber-200/80 shadow-sm shrink-0 w-full lg:w-96">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="p-2 bg-amber-100 text-amber-700 rounded-lg"><Search className="w-5 h-5"/></div>
+                <h4 className="font-extrabold text-slate-900 text-sm">All Typing Test Guides</h4>
+              </div>
+              <p className="text-xs text-slate-500 font-medium mb-4">
+                A single hub for SSC, court, clerk, Hindi, English and 10-minute typing pages.
+              </p>
+              <button onClick={() => alert('Viewing all guides directory')} className="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5">
+                Browse complete directory <ArrowRight className="w-4 h-4"/>
+              </button>
+            </div>
           </div>
+
+          {/* Guides Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {typingGuides.map((guide, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-400 transition duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="text-[11px] font-extrabold px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800">
+                      {guide.tag}
+                    </span>
+                    <ExternalLink className="w-4 h-4 text-slate-400 group-hover:text-amber-600 transition" />
+                  </div>
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-amber-600 transition mb-2">
+                    {guide.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 font-medium leading-relaxed mb-4">
+                    {guide.desc}
+                  </p>
+                </div>
+
+                <div className="pt-3 border-t border-amber-100">
+                  <button onClick={() => alert(`Opening guide for ${guide.title}`)} className="text-xs font-bold text-amber-600 hover:text-amber-700 flex items-center gap-1 group-hover:translate-x-1 transition duration-300">
+                    Open guide <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ======================================================== */}
+      {/* SECTION 3: PROFESSIONAL TESTMENTOR STYLE FOOTER */}
+      {/* ======================================================== */}
+      <footer className="bg-[#1e3a8a] text-white pt-16 pb-12 border-t border-blue-900 mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b border-blue-800">
+            
+            {/* Col 1: Brand & Bio */}
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl overflow-hidden border-2 border-amber-400 bg-white flex items-center justify-center shadow-md">
+                  <img src="/exampur logo 2.jpg" alt="Logo" className="w-full h-full object-cover" />
+                </div>
+                <span className="text-xl font-black tracking-tight text-white">Exampur TestPrep</span>
+              </div>
+              <p className="text-xs text-blue-100 font-medium leading-relaxed">
+                Exampur TestPrep helps government exam aspirants practice English and Hindi typing with exam-style tests, affordable passes, result history, live practice, and focused typing lessons.
+              </p>
+            </div>
+
+            {/* Col 2: Contact Us */}
+            <div className="space-y-3">
+              <h4 className="text-base font-bold text-amber-400 tracking-wide uppercase">Contact us</h4>
+              <p className="text-xs text-blue-100 font-medium leading-relaxed">
+                Our main office is located @ Faridabad, Haryana - 121004
+              </p>
+              <p className="text-xs text-blue-100 font-medium">
+                helptestmentor@gmail.com
+              </p>
+            </div>
+
+            {/* Col 3: Quick Links */}
+            <div className="space-y-3">
+              <h4 className="text-base font-bold text-amber-400 tracking-wide uppercase">Quick Links</h4>
+              <ul className="space-y-2 text-xs font-semibold text-blue-100">
+                <li><a href="#" className="hover:text-amber-300 transition">Home</a></li>
+                <li><a href="#courses" className="hover:text-amber-300 transition">All Typing Exams</a></li>
+                <li><a href="#" className="hover:text-amber-300 transition">Learn Typing</a></li>
+                <li><a href="#passes" className="hover:text-amber-300 transition">Pricing</a></li>
+                <li><a href="#" className="hover:text-amber-300 transition">Typing Tips Blog</a></li>
+                <li><a href="#" className="hover:text-amber-300 transition">About Us</a></li>
+                <li><a href="#" className="hover:text-amber-300 transition">Report a Problem</a></li>
+                <li><a href="#" className="hover:text-amber-300 transition">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-amber-300 transition">Terms & Conditions</a></li>
+                <li><a href="#" className="hover:text-amber-300 transition">Refund Policy</a></li>
+              </ul>
+            </div>
+
+            {/* Col 4: Connect with us */}
+            <div className="space-y-4">
+              <h4 className="text-base font-bold text-amber-400 tracking-wide uppercase">Connect with us</h4>
+              <div className="flex items-center gap-3">
+                <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-red-600 hover:bg-red-700 text-white flex items-center justify-center shadow-md transition transform hover:scale-110">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+                <a href="https://telegram.org" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-sky-500 hover:bg-sky-600 text-white flex items-center justify-center shadow-md transition transform hover:scale-110">
+                  <Send className="w-5 h-5" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-sky-400 hover:bg-sky-500 text-white flex items-center justify-center shadow-md transition transform hover:scale-110">
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-pink-600 hover:bg-pink-700 text-white flex items-center justify-center shadow-md transition transform hover:scale-110">
+                  <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="pt-8 text-center text-xs text-blue-200 font-semibold">
+            Exampur TestPrep &copy; {new Date().getFullYear()} — All rights reserved.
+          </div>
+
         </div>
       </footer>
 
