@@ -101,19 +101,43 @@ export default function ExampurTestPrep() {
 
   const categories = ['All', 'DSSSB', 'UPSSSC', 'SSC', 'HCM', 'Delhi', 'UP', 'Court'];
 
+  // All 27 detailed courses with proper categories for filtering sync
   const detailedCourses = [
-    { title: "KVS JSA Typing Practice Test Series", tests: "800+ Tests", time: "70 Days", price: "₹159", freePrice: "₹79", tag: "Popular", icon: "🏫", users: "14,809" },
-    { title: "Subordinate Courts Punjab & Haryana (S.S.S.C.) Clerk Typing", tests: "900+ Tests", time: "70 Days", price: "₹159", freePrice: "₹89", tag: "High Demand", icon: "⚖️", users: "6,730" },
-    { title: "DSSSB Junior Assistant / LDC / DASS IV Typing Tests", tests: "700+ Tests", time: "70 Days", price: "₹159", freePrice: "Free Demo", tag: "Exam Oriented", icon: "🏛️", users: "17,430" },
-    { title: "UPSSSC Junior Assistant Typing Skill Test Series", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "Bilingual", icon: "📜", users: "69,577" },
-    { title: "SSC CGL Typing Course Test Series", tests: "1000+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "TCS Interface", icon: "📊", users: "10,563" },
-    { title: "SSC CHSL 2024 Typing Test Series", tests: "900+ Tests", time: "100 Days", price: "₹239", freePrice: "Free", tag: "Best Seller", icon: "💻", users: "2,797" },
-    { title: "Delhi High Court Junior Judicial Assistant (JJA)", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "Court Special", icon: "⚖️", users: "5,896" },
-    { title: "UP Police (UPPRPB) SI, ASI, Computer Operator", tests: "300+ Tests", time: "20 Days", price: "₹59", freePrice: "Free Tests", tag: "Police Dept", icon: "🛡️", users: "4,120" },
-    { title: "ALLAHABAD High Court JA & Paid Apprentices & Steno", tests: "1000+ Tests", time: "60 Days", price: "₹159", freePrice: "Free Demo", tag: "Legal Passage", icon: "⚖️", users: "387" },
+    { title: "KVS JSA Typing Practice Test Series", category: "Delhi", tests: "800+ Tests", time: "70 Days", price: "₹159", freePrice: "₹79", tag: "Popular", icon: "🏫", users: "14,809" },
+    { title: "Subordinate Courts Punjab & Haryana (S.S.S.C.) Clerk Typing", category: "Court", tests: "900+ Tests", time: "70 Days", price: "₹159", freePrice: "₹89", tag: "High Demand", icon: "⚖️", users: "6,730" },
+    { title: "DSSSB Junior Assistant / LDC / DASS IV Typing Tests", category: "DSSSB", tests: "700+ Tests", time: "70 Days", price: "₹159", freePrice: "Free Demo", tag: "Exam Oriented", icon: "🏛️", users: "17,430" },
+    { title: "UPSSSC Junior Assistant Typing Skill Test Series", category: "UPSSSC", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "Bilingual", icon: "📜", users: "69,577" },
+    { title: "NCERT LDC English Typing Tests", category: "SSC", tests: "500+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "New", icon: "📚", users: "4,120" },
+    { title: "Delhi High Court Junior Judicial Assistant (JJA) Typing Test Series", category: "Court", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "Court Special", icon: "⚖️", users: "5,896" },
+    { title: "UP Police (UPPRPB) SI, ASI, Computer Operator Typing Tests", category: "UP", tests: "300+ Tests", time: "20 Days", price: "₹59", freePrice: "Free Tests", tag: "Police Dept", icon: "🛡️", users: "3,120" },
+    { title: "SSC CHSL 2024 Typing Test Series", category: "SSC", tests: "900+ Tests", time: "100 Days", price: "₹239", freePrice: "Free", tag: "Best Seller", icon: "💻", users: "2,797" },
+    { title: "Delhi Police Typing Course Test Series", category: "Delhi", tests: "600+ Tests", time: "45 Days", price: "₹99", freePrice: "Free Demo", tag: "Trending", icon: "🚨", users: "8,450" },
+    { title: "DDA JSA Typing Practice Test Series", category: "Delhi", tests: "750+ Tests", time: "40 Days", price: "₹99", freePrice: "Free", tag: "Popular", icon: "🏢", users: "6,120" },
+    { title: "SSC CGL Typing Course Test Series", category: "SSC", tests: "1000+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "TCS Interface", icon: "📊", users: "10,563" },
+    { title: "DSSSB JJA / PA / SPA Typing Test Series", category: "DSSSB", tests: "800+ Tests", time: "50 Days", price: "₹129", freePrice: "Free Demo", tag: "High Demand", icon: "🏛️", users: "9,430" },
+    { title: "RRB NTPC / GDCE Typing Test Series", category: "SSC", tests: "600+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "Railway", icon: "🚂", users: "12,100" },
+    { title: "CSIR JSA English Typing Test Series", category: "SSC", tests: "500+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "Skill Test", icon: "🔬", users: "2,300" },
+    { title: "ALLAHABAD High Court JA & Paid Apprentices & Steno", category: "Court", tests: "1000+ Tests", time: "60 Days", price: "₹159", freePrice: "Free Demo", tag: "Legal Passage", icon: "⚖️", users: "3,870" },
+    { title: "High Court ALLAHABAD RO / ARO Typing Test Series", category: "Court", tests: "900+ Tests", time: "45 Days", price: "₹129", freePrice: "Free", tag: "High Court", icon: "⚖️", users: "4,500" },
+    { title: "NVS Junior Secretariat Assistant Typing Tests", category: "Delhi", tests: "550+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "Navodaya", icon: "🏫", users: "1,890" },
+    { title: "Delhi Police AWO TPO Typing Test Course", category: "Delhi", tests: "400+ Tests", time: "25 Days", price: "₹69", freePrice: "Free", tag: "Defence", icon: "🚨", users: "2,450" },
+    { title: "BSF Head Constable (Ministerial) Typing Test Courses", category: "HCM", tests: "270+ Tests", time: "15 Days", price: "₹59", freePrice: "Free", tag: "Defence", icon: "🎖️", users: "7,648" },
+    { title: "CRPF HCM typing paragraph pdf (Download 800+)", category: "HCM", tests: "800+ PDFs", time: "Lifetime", price: "₹99", freePrice: "Free PDF", tag: "Study Material", icon: "📄", users: "15,200" },
+    { title: "Supreme Court Junior Court Assistant (JCA) Typing tests", category: "Court", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "NTA Interface", icon: "🏛️", users: "3,420" },
+    { title: "JNU Junior Assistant Typing Test Course", category: "Delhi", tests: "500+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "University", icon: "🎓", users: "1,980" },
+    { title: "EPFO Social Security Assistant (SSA) Typing Course", category: "SSC", tests: "500+ Tests", time: "30 Days", price: "₹99", freePrice: "Free", tag: "Banking", icon: "🏦", users: "5,133" },
+    { title: "AIIMS CRE English Typing Skill Test", category: "Delhi", tests: "450+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "Medical", icon: "🏥", users: "1,450" },
+    { title: "CBSE English Typing Skill Test", category: "Delhi", tests: "400+ Tests", time: "20 Days", price: "₹69", freePrice: "Free", tag: "Board Exam", icon: "📖", users: "3,210" },
+    { title: "Delhi High Court PA SPA Typing Tests", category: "Court", tests: "850+ Tests", time: "40 Days", price: "₹129", freePrice: "Free Demo", tag: "Steno & PA", icon: "⚖️", users: "2,890" },
+    { title: "DRDO Assistant Typing Test Course", category: "HCM", tests: "600+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "Defence DRDO", icon: "🚀", users: "4,600" }
   ];
 
-  const filteredDetailedCourses = detailedCourses.filter(course => course.title.toLowerCase().includes(searchQuery.toLowerCase()));
+  // Filter logic based on both search query and selected category tab
+  const filteredDetailedCourses = detailedCourses.filter(course => {
+    const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesCategory = selectedCategory === 'All' || course.category === selectedCategory;
+    return matchesSearch && matchesCategory;
+  });
 
   return (
     <div className="min-h-screen bg-[#fdfbf7] font-sans text-slate-800">
@@ -257,7 +281,7 @@ export default function ExampurTestPrep() {
         </div>
       </section>
 
-      {/* ALL COURSES MINI CARDS (EXACT TESTMENTOR STYLE) */}
+      {/* ALL COURSES MINI CARDS */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">All Courses</h2>
@@ -284,9 +308,7 @@ export default function ExampurTestPrep() {
         </div>
       </section>
 
-      {/* ======================================================== */}
-      {/* EXACT TESTMENTOR YEARLY PASS SECTION (PLACED RIGHT AFTER MINI CARDS) */}
-      {/* ======================================================== */}
+      {/* TESTMENTOR YEARLY PASS SECTION */}
       <section id="passes" className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-[#eef7ff] via-[#fef6eb] to-[#fff3e0] rounded-3xl p-8 sm:p-12 shadow-xl border border-amber-200/80 flex flex-col lg:flex-row items-center justify-between gap-8 relative overflow-hidden">
           
@@ -352,7 +374,7 @@ export default function ExampurTestPrep() {
         </div>
       </section>
 
-      {/* Detailed Courses & Search Section */}
+      {/* DETAILED COURSES & FULLY SYNCED CATEGORY/SEARCH SECTION */}
       <section id="courses" className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto mb-12 bg-white p-2 rounded-2xl shadow-md border border-amber-200 flex items-center gap-2">
           <div className="pl-3 text-amber-600"><Search className="w-5 h-5" /></div>
@@ -390,51 +412,57 @@ export default function ExampurTestPrep() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredDetailedCourses.map((course, idx) => (
-            <div key={idx} className="bg-white rounded-2xl p-6 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-400 transition duration-300 flex flex-col justify-between group">
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-2xl shadow-inner">
-                    {course.icon}
+          {filteredDetailedCourses.length > 0 ? (
+            filteredDetailedCourses.map((course, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-400 transition duration-300 flex flex-col justify-between group">
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-2xl shadow-inner">
+                      {course.icon}
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800">{course.time}</span>
+                      <span className="text-[11px] font-extrabold px-2.5 py-1 rounded-lg bg-red-50 text-red-700">{course.tag}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-bold px-2.5 py-1 rounded-lg bg-amber-50 text-amber-800">{course.time}</span>
-                    <span className="text-[11px] font-extrabold px-2.5 py-1 rounded-lg bg-red-50 text-red-700">{course.tag}</span>
+
+                  <h3 className="text-base font-bold text-slate-900 group-hover:text-amber-600 transition mb-3 line-clamp-2">
+                    {course.title}
+                  </h3>
+
+                  <div className="space-y-2 mb-6 text-xs text-slate-600 font-medium border-t border-amber-100 pt-3">
+                    <div className="flex items-center justify-between">
+                      <span className="flex items-center gap-1.5 text-slate-500"><FileText className="w-3.5 h-3.5 text-amber-600"/> Total Tests:</span>
+                      <span className="font-bold text-slate-800">{course.tests}</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="flex items-center gap-1.5 text-slate-500"><Terminal className="w-3.5 h-3.5 text-amber-600"/> Interface:</span>
+                      <span className="font-bold text-slate-800">Real Exam UI</span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className="flex items-center gap-1.5 text-slate-500"><Users className="w-3.5 h-3.5 text-amber-600"/> Enrolled Aspirants:</span>
+                      <span className="font-bold text-slate-800">{course.users}</span>
+                    </div>
                   </div>
                 </div>
 
-                <h3 className="text-base font-bold text-slate-900 group-hover:text-amber-600 transition mb-3 line-clamp-2">
-                  {course.title}
-                </h3>
-
-                <div className="space-y-2 mb-6 text-xs text-slate-600 font-medium border-t border-amber-100 pt-3">
-                  <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 text-slate-500"><FileText className="w-3.5 h-3.5 text-amber-600"/> Total Tests:</span>
-                    <span className="font-bold text-slate-800">{course.tests}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 text-slate-500"><Terminal className="w-3.5 h-3.5 text-amber-600"/> Interface:</span>
-                    <span className="font-bold text-slate-800">Real Exam UI</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-1.5 text-slate-500"><Users className="w-3.5 h-3.5 text-amber-600"/> Enrolled Aspirants:</span>
-                    <span className="font-bold text-slate-800">{course.users}</span>
-                  </div>
+                <div className="pt-4 border-t border-amber-100 flex items-center gap-3">
+                  <button onClick={() => alert(`Opening free demo for ${course.title}`)} className="relative group flex-1 py-2.5 px-3 rounded-xl border border-amber-300 text-slate-700 font-bold text-xs hover:bg-amber-50 transition overflow-hidden">
+                    <span className="relative z-10">{course.freePrice}</span>
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-500 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
+                  </button>
+                  <button onClick={() => alert(`Redirecting to checkout for ${course.title} at ${course.price}`)} className="relative group flex-1 py-2.5 px-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1 overflow-hidden">
+                    <span className="relative z-10 flex items-center gap-1">BUY @ {course.price} <ArrowRight className="w-3.5 h-3.5" /></span>
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
+                  </button>
                 </div>
               </div>
-
-              <div className="pt-4 border-t border-amber-100 flex items-center gap-3">
-                <button onClick={() => alert(`Opening free demo for ${course.title}`)} className="relative group flex-1 py-2.5 px-3 rounded-xl border border-amber-300 text-slate-700 font-bold text-xs hover:bg-amber-50 transition overflow-hidden">
-                  <span className="relative z-10">{course.freePrice}</span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-500 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
-                </button>
-                <button onClick={() => alert(`Redirecting to checkout for ${course.title} at ${course.price}`)} className="relative group flex-1 py-2.5 px-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1 overflow-hidden">
-                  <span className="relative z-10 flex items-center gap-1">BUY @ {course.price} <ArrowRight className="w-3.5 h-3.5" /></span>
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
-                </button>
-              </div>
+            ))
+          ) : (
+            <div className="col-span-full py-12 text-center text-slate-500 font-medium">
+              No courses found matching your search or category filter.
             </div>
-          ))}
+          )}
         </div>
       </section>
 
