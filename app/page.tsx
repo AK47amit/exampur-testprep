@@ -69,7 +69,6 @@ export default function ExampurTestPrep() {
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
 
-  // All Courses Mini Grid Items (Exact Testmentor SS1 & SS2 Style)
   const allExamMiniCourses = [
     { title: "KVS JSA Typing Practice Test Series", icon: "🏫" },
     { title: "Subordinate Courts Punjab & Haryana (S.S.S.C.) Clerk Typing", icon: "⚖️" },
@@ -123,7 +122,6 @@ export default function ExampurTestPrep() {
       <header className="sticky top-0 z-50 bg-[#fdfbf7]/95 backdrop-blur-md border-b border-amber-200/60 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
-          {/* Logo & Brand */}
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl overflow-hidden border-2 border-amber-500 shadow-md bg-white flex items-center justify-center">
               <img src="/exampur logo 2.jpg" alt="Exampur Logo" className="w-full h-full object-cover" />
@@ -136,7 +134,6 @@ export default function ExampurTestPrep() {
             </div>
           </div>
 
-          {/* Social Icons (Only Icons, No Text) */}
           <div className="hidden lg:flex items-center gap-4">
             <a href="https://youtube.com" target="_blank" rel="noreferrer" className="relative group p-2.5 rounded-full bg-red-100 text-red-600 hover:bg-red-600 hover:text-white shadow-sm transition transform hover:scale-110">
               <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
@@ -159,7 +156,6 @@ export default function ExampurTestPrep() {
             </a>
           </div>
 
-          {/* Right Auth Actions */}
           <div className="hidden md:flex items-center gap-3">
             <button className="relative group px-5 py-2.5 rounded-xl border-2 border-amber-500 text-amber-700 font-extrabold text-sm hover:bg-amber-500 hover:text-white transition shadow-sm overflow-hidden">
               <span className="relative z-10">Login</span>
@@ -171,13 +167,11 @@ export default function ExampurTestPrep() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="md:hidden p-2 text-slate-700">
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
-        {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#fdfbf7] border-b border-amber-200 px-4 pt-3 pb-6 space-y-3">
             <div className="pt-2 flex flex-col gap-2">
@@ -188,11 +182,10 @@ export default function ExampurTestPrep() {
         )}
       </header>
 
-      {/* Hero Banner Slider Section */}
+      {/* Hero Banner Slider */}
       <section className="py-6 sm:py-8 bg-[#fdfbf7]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-900">
-            
             <div className={`relative w-full h-[320px] sm:h-[400px] bg-gradient-to-r ${heroSlides[currentSlide].bgGradient} flex items-center justify-between px-8 sm:px-16 text-white transition-opacity duration-500`}>
               <div className="z-10 max-w-xl">
                 <span className="inline-block bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider border border-white/30">
@@ -223,7 +216,6 @@ export default function ExampurTestPrep() {
                 <button key={idx} onClick={() => setCurrentSlide(idx)} className={`w-2.5 h-2.5 rounded-full transition-all ${currentSlide === idx ? 'bg-amber-400 w-6' : 'bg-white/50'}`} />
               ))}
             </div>
-
           </div>
 
           {/* Stats Bar */}
@@ -266,7 +258,7 @@ export default function ExampurTestPrep() {
       </section>
 
       {/* ======================================================== */}
-      {/* ALL COURSES MINI CARDS GRID (EXACT SS1 & SS2 TESTMENTOR STYLE) */}
+      {/* ALL COURSES MINI CARDS (SHARP EDGES + SCALE UP + ORANGE BAR) */}
       {/* ======================================================== */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
@@ -274,17 +266,20 @@ export default function ExampurTestPrep() {
           <p className="text-sm text-slate-500 font-medium">Explore all available exam typing test series</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
           {allExamMiniCourses.map((exam, idx) => (
             <div 
               key={idx} 
               onClick={() => alert(`Opening ${exam.title}`)}
-              className="bg-white rounded-2xl p-5 border border-amber-200/60 shadow-sm hover:shadow-xl hover:border-amber-500 transition duration-300 flex flex-col items-center text-center cursor-pointer group transform hover:-translate-y-1"
+              className="relative bg-white rounded-xl p-5 border-2 border-amber-200/80 shadow-md hover:shadow-2xl hover:border-amber-500 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group transform hover:-translate-y-2 hover:scale-105 overflow-hidden"
             >
-              <div className="w-14 h-14 rounded-2xl bg-amber-50 border border-amber-200 flex items-center justify-center text-3xl mb-3 shadow-inner group-hover:scale-110 transition duration-300">
+              {/* Orange Horizontal Bottom Line on Hover */}
+              <span className="absolute bottom-0 left-0 w-full h-1.5 bg-amber-500 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
+
+              <div className="w-14 h-14 rounded-xl bg-amber-50 border border-amber-200 flex items-center justify-center text-3xl mb-3 shadow-inner group-hover:scale-110 transition duration-300">
                 {exam.icon}
               </div>
-              <h4 className="text-xs font-bold text-slate-800 group-hover:text-amber-600 transition line-clamp-3 leading-snug">
+              <h4 className="text-xs font-bold text-slate-800 group-hover:text-amber-700 transition line-clamp-3 leading-snug">
                 {exam.title}
               </h4>
             </div>
