@@ -1,16 +1,79 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
-  Search, ShieldCheck, Award, Users, BookOpen, Clock, CheckCircle2, 
-  ArrowRight, Play, Terminal, Zap, FileText, ChevronRight, Menu, X, Sparkles, UserCheck 
+  Search, Users, BookOpen, CheckCircle2, 
+  ArrowRight, Terminal, Zap, FileText, Menu, X, Sparkles, UserCheck, ChevronLeft, ChevronRight 
 } from 'lucide-react';
 
 export default function ExampurTestPrep() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeModal, setActiveModal] = useState<string | null>(null);
+  
+  // Slider State for Hero Banners
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroSlides = [
+    {
+      title: "SSC Typing Test 2024-25 CGL",
+      subtitle: "500+ Tests & FREE DEMO",
+      bgGradient: "from-purple-600 via-indigo-600 to-blue-600",
+      tag: "SSC Special",
+      imagePlaceholder: "💻"
+    },
+    {
+      title: "INVITE YOUR FRIEND & Win Rewards",
+      subtitle: "Share the power of smart exam preparation",
+      bgGradient: "from-blue-600 via-teal-600 to-emerald-600",
+      tag: "Referral Program",
+      imagePlaceholder: "🤝"
+    },
+    {
+      title: "TYPING COURSE TO BOOST CHSL SPEED",
+      subtitle: "Master your keyboard accuracy with expert guidance",
+      bgGradient: "from-amber-500 via-orange-600 to-yellow-600",
+      tag: "Best Seller",
+      imagePlaceholder: "⚡"
+    },
+    {
+      title: "Connect With Us & Follow Now",
+      subtitle: "We are active on all social networks for daily updates",
+      bgGradient: "from-slate-800 via-indigo-900 to-slate-900",
+      tag: "Community",
+      imagePlaceholder: "🌐"
+    },
+    {
+      title: "Improve Your Typing Skills Now",
+      subtitle: "Affordable Courses | Free Trial Available | 500+ Tests per course",
+      bgGradient: "from-rose-600 via-pink-700 to-purple-800",
+      tag: "Skill Booster",
+      imagePlaceholder: "🎯"
+    },
+    {
+      title: "Detailed Test Analysis",
+      subtitle: "Helps to improve your performance with deep insights",
+      bgGradient: "from-blue-900 via-slate-900 to-black",
+      tag: "Analytics",
+      imagePlaceholder: "📊"
+    }
+  ];
+
+  // Auto slide effect every 5 seconds
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [heroSlides.length]);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
 
   const categories = ['All', 'DSSSB', 'UPSSSC', 'SSC', 'HCM', 'Delhi', 'UP', 'Court'];
 
@@ -30,8 +93,7 @@ export default function ExampurTestPrep() {
   ];
 
   const filteredCourses = courses.filter(course => {
-    const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesSearch;
+    return course.title.toLowerCase().includes(searchQuery.toLowerCase());
   });
 
   return (
@@ -60,11 +122,10 @@ export default function ExampurTestPrep() {
             </div>
           </div>
 
-          {/* Desktop Nav Actions */}
+          {/* Social Links & Auth Actions */}
           <div className="hidden md:flex items-center gap-4">
             <a href="#courses" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">All Courses</a>
             <a href="#passes" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Pro Passes</a>
-            <a href="#features" className="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Features</a>
             <button className="px-5 py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-sm hover:bg-slate-100 transition">
               Login
             </button>
@@ -84,7 +145,6 @@ export default function ExampurTestPrep() {
           <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
             <a href="#courses" className="block py-2 text-base font-semibold text-slate-700">All Courses</a>
             <a href="#passes" className="block py-2 text-base font-semibold text-slate-700">Pro Passes</a>
-            <a href="#features" className="block py-2 text-base font-semibold text-slate-700">Features</a>
             <div className="pt-2 flex flex-col gap-2">
               <button className="w-full py-2.5 rounded-xl border border-slate-300 text-slate-700 font-bold text-sm">Login</button>
               <button className="w-full py-2.5 rounded-xl bg-blue-600 text-white font-bold text-sm shadow-md">Create Free Account</button>
@@ -93,104 +153,121 @@ export default function ExampurTestPrep() {
         )}
       </header>
 
-      {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-900 via-indigo-900 to-slate-900 text-white py-16 sm:py-24">
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:16px_16px]"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-blue-300 text-xs sm:text-sm font-semibold mb-6">
-            <Zap className="w-4 h-4 text-yellow-400" /> Trusted by 75,000+ Serious Government Aspirants
-          </div>
+      {/* TESTMENTOR STYLE SLIDER HERO SECTION */}
+      <section className="bg-slate-100 py-6 sm:py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <h1 className="text-4xl sm:text-6xl font-black tracking-tight max-w-4xl mx-auto leading-tight mb-6">
-            Master Your Government Exam <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-yellow-300">Typing & Skill Tests</span>
-          </h1>
-          
-          <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-10 font-normal">
-            Practice with exact TCS, NTA & Court exam-style interfaces, Hindi/English legal passages, real-time error calculation, and advanced speed analytics.
-          </p>
+          {/* Slider Container */}
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-slate-900 transition-all duration-700">
+            
+            {/* Slide Item */}
+            <div className={`relative w-full h-[320px] sm:h-[400px] bg-gradient-to-r ${heroSlides[currentSlide].bgGradient} flex items-center justify-between px-8 sm:px-16 text-white transition-opacity duration-500`}>
+              
+              <div className="z-10 max-w-xl">
+                <span className="inline-block bg-white/20 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
+                  {heroSlides[currentSlide].tag}
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black tracking-tight mb-3 drop-shadow-md">
+                  {heroSlides[currentSlide].title}
+                </h2>
+                <p className="text-base sm:text-lg text-slate-100 font-medium drop-shadow">
+                  {heroSlides[currentSlide].subtitle}
+                </p>
+              </div>
 
-          {/* Search Box */}
-          <div className="max-w-2xl mx-auto bg-white p-2 rounded-2xl shadow-2xl flex items-center gap-2">
-            <div className="pl-3 text-slate-400">
-              <Search className="w-6 h-6" />
+              <div className="hidden md:flex items-center justify-center text-8xl opacity-30 select-none">
+                {heroSlides[currentSlide].imagePlaceholder}
+              </div>
+
+              {/* Slider Arrow Buttons */}
+              <button 
+                onClick={prevSlide}
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-slate-800 flex items-center justify-center shadow-lg transition z-20"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+              <button 
+                onClick={nextSlide}
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 hover:bg-white text-slate-800 flex items-center justify-center shadow-lg transition z-20"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
             </div>
-            <input 
-              type="text" 
-              placeholder="Search exam typing test (e.g., SSC CGL, UP Police, Steno, High Court)..." 
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full py-3 px-2 text-slate-800 placeholder-slate-400 bg-transparent text-sm sm:text-base focus:outline-none font-medium"
-            />
-            <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-bold text-sm sm:text-base transition shrink-0 shadow-md">
-              Search Test
-            </button>
+
+            {/* Slider Dots Indicator */}
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`w-2.5 h-2.5 rounded-full transition-all ${currentSlide === idx ? 'bg-white w-6' : 'bg-white/50'}`}
+                />
+              ))}
+            </div>
+
           </div>
 
-          {/* Quick Stats Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-4xl mx-auto mt-16 pt-12 border-t border-slate-800 text-left">
-            <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl backdrop-blur border border-white/10">
-              <div className="p-3 bg-blue-500/20 text-blue-400 rounded-xl"><FileText className="w-6 h-6"/></div>
+          {/* Stats Bar Below Banner (Exact Testmentor Style) */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6 bg-white p-6 rounded-3xl shadow-sm border border-slate-200/80 items-center">
+            
+            <div className="flex items-center gap-3 md:border-r border-slate-200 pr-4">
+              <div className="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-xl shadow-md">
+                EX
+              </div>
               <div>
-                <div className="text-2xl font-black">30 Lakhs+</div>
-                <div className="text-xs text-slate-400 font-medium">Typing Tests Served</div>
+                <h4 className="font-bold text-slate-900 text-base">Exampur TestPrep</h4>
+                <p className="text-xs text-slate-500 font-medium">Trusted typing exam practice for serious aspirants.</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 bg-white/5 p-4 rounded-2xl backdrop-blur border border-white/10">
-              <div className="p-3 bg-yellow-500/20 text-yellow-400 rounded-xl"><BookOpen className="w-6 h-6"/></div>
+
+            <div className="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+              <div className="p-3 bg-blue-100 text-blue-600 rounded-xl"><FileText className="w-5 h-5"/></div>
               <div>
-                <div className="text-2xl font-black">50+ Courses</div>
-                <div className="text-xs text-slate-400 font-medium">Exam-Focused Modules</div>
+                <div className="text-xl font-black text-slate-900">30,00,000+</div>
+                <div className="text-xs text-slate-500 font-semibold">typing tests taken</div>
               </div>
             </div>
-            <div className="col-span-2 md:col-span-1 flex items-center gap-4 bg-white/5 p-4 rounded-2xl backdrop-blur border border-white/10">
-              <div className="p-3 bg-teal-500/20 text-teal-400 rounded-xl"><UserCheck className="w-6 h-6"/></div>
+
+            <div className="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+              <div className="p-3 bg-amber-100 text-amber-600 rounded-xl"><BookOpen className="w-5 h-5"/></div>
               <div>
-                <div className="text-2xl font-black">75,000+</div>
-                <div className="text-xs text-slate-400 font-medium">Verified Aspirants</div>
+                <div className="text-xl font-black text-slate-900">50+</div>
+                <div className="text-xs text-slate-500 font-semibold">exam-focused courses</div>
               </div>
             </div>
+
+            <div className="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+              <div className="p-3 bg-emerald-100 text-emerald-600 rounded-xl"><UserCheck className="w-5 h-5"/></div>
+              <div>
+                <div className="text-xl font-black text-slate-900">75,000+</div>
+                <div className="text-xs text-slate-500 font-semibold">verified happy users</div>
+              </div>
+            </div>
+
           </div>
 
         </div>
       </section>
 
-      {/* Yearly Pass Promo Section */}
-      <section id="passes" className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
-        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 rounded-3xl p-8 sm:p-12 text-white shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 border border-blue-400/20">
-          <div>
-            <div className="inline-block bg-yellow-400 text-slate-900 text-xs font-black uppercase px-3 py-1 rounded-full mb-3 tracking-wider">
-              Best Yearly Value
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-3">
-              One Exampur Pass for Serious Typing Preparation
-            </h2>
-            <p className="text-blue-100 max-w-xl text-sm sm:text-base font-normal">
-              Unlock all eligible premium typing courses for a full year. Keep your results, analytics, and speed history in one unified dashboard.
-            </p>
-            <div className="flex flex-wrap gap-4 mt-6 text-xs sm:text-sm font-semibold">
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> 50+ Premium Courses</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> 365 Days Full Validity</span>
-              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> Speed Booster Included</span>
-            </div>
-          </div>
-          <div className="bg-white text-slate-900 p-8 rounded-2xl shadow-xl text-center shrink-0 w-full sm:w-80">
-            <span className="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Starts at</span>
-            <div className="text-4xl sm:text-5xl font-black text-blue-600 my-1">₹179</div>
-            <span className="text-xs text-slate-500 font-medium block mb-6">Valid upto 365 Days (All Exams Included)</span>
-            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition">
-              Explore All Passes
-            </button>
-            <span className="text-[11px] text-slate-400 mt-3 block">First pass purchase gets extra 15% off</span>
-          </div>
-        </div>
-      </section>
-
-      {/* All Courses Section */}
+      {/* Search & All Courses Section */}
       <section id="courses" className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div className="max-w-2xl mx-auto mb-12 bg-white p-2 rounded-2xl shadow-md border border-slate-200 flex items-center gap-2">
+          <div className="pl-3 text-slate-400">
+            <Search className="w-5 h-5" />
+          </div>
+          <input 
+            type="text" 
+            placeholder="Search exam typing test (e.g., SSC CGL, UP Police, Steno, High Court)..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full py-2.5 px-2 text-slate-800 placeholder-slate-400 bg-transparent text-sm sm:text-base focus:outline-none font-medium"
+          />
+        </div>
+
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">All Exam Typing Courses</h2>
+            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">All Courses</h2>
             <p className="text-sm text-slate-500 font-medium">Select your target exam and start practicing right away</p>
           </div>
 
@@ -270,50 +347,39 @@ export default function ExampurTestPrep() {
         </div>
       </section>
 
-      {/* Features Highlight Section */}
-      <section id="features" className="py-16 bg-white border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight mb-3">Why Aspirants Choose Exampur TestPrep</h2>
-            <p className="text-sm text-slate-500 font-medium">Engineered specifically to beat exam anxiety and eliminate typing mistakes.</p>
+      {/* Yearly Pass Promo Section */}
+      <section id="passes" className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 rounded-3xl p-8 sm:p-12 text-white shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8 border border-blue-400/20">
+          <div>
+            <div className="inline-block bg-yellow-400 text-slate-900 text-xs font-black uppercase px-3 py-1 rounded-full mb-3 tracking-wider">
+              Best Yearly Value
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-black tracking-tight mb-3">
+              One Exampur Pass for Serious Typing Preparation
+            </h2>
+            <p className="text-blue-100 max-w-xl text-sm sm:text-base font-normal">
+              Unlock all eligible premium typing courses for a full year. Keep your results, analytics, and speed history in one unified dashboard.
+            </p>
+            <div className="flex flex-wrap gap-4 mt-6 text-xs sm:text-sm font-semibold">
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> 50+ Premium Courses</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> 365 Days Full Validity</span>
+              <span className="flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-yellow-300"/> Speed Booster Included</span>
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <div className="w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-blue-600/30">
-                01
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Exam-Wise Passages</h3>
-              <p className="text-sm text-slate-600 font-normal leading-relaxed">
-                Practice with exact paragraphs mapped to popular government exams including official legal formatting and numeric data sets.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <div className="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-indigo-600/30">
-                02
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Bilingual Font Support</h3>
-              <p className="text-sm text-slate-600 font-normal leading-relaxed">
-                Complete language and font settings that match real test needs including Mangal Font with Unicode Inscript keyboard layout.
-              </p>
-            </div>
-
-            <div className="p-8 rounded-2xl bg-slate-50 border border-slate-200/80">
-              <div className="w-12 h-12 bg-teal-600 text-white rounded-xl flex items-center justify-center font-bold text-lg mb-6 shadow-md shadow-teal-600/30">
-                03
-              </div>
-              <h3 className="text-lg font-bold text-slate-900 mb-2">Deep Analytics & History</h3>
-              <p className="text-sm text-slate-600 font-normal leading-relaxed">
-                Get detailed result breakdown, gross WPM, net WPM, accuracy percentage, and word-by-word error analysis after every test.
-              </p>
-            </div>
+          <div className="bg-white text-slate-900 p-8 rounded-2xl shadow-xl text-center shrink-0 w-full sm:w-80">
+            <span className="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Starts at</span>
+            <div className="text-4xl sm:text-5xl font-black text-blue-600 my-1">₹179</div>
+            <span className="text-xs text-slate-500 font-medium block mb-6">Valid upto 365 Days (All Exams Included)</span>
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition">
+              Explore All Passes
+            </button>
+            <span className="text-[11px] text-slate-400 mt-3 block">First pass purchase gets extra 15% off</span>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 text-white py-12 border-t border-slate-800">
+      <footer className="bg-slate-900 text-white py-12 border-t border-slate-800 mt-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div>
             <div className="flex items-center justify-center md:justify-start gap-3 mb-2">
@@ -325,7 +391,7 @@ export default function ExampurTestPrep() {
             <p className="text-xs text-slate-400">The ultimate destination for government exam typing practice & skill tests.</p>
           </div>
           <div className="text-xs text-slate-500">
-            &copy; {new Date().getFullYear()} Exampur Edtech Pvt Ltd. All rights reserved. Built with World-Class Tech Stack.
+            &copy; {new Date().getFullYear()} Exampur Edtech Pvt Ltd. All rights reserved.
           </div>
         </div>
       </footer>
