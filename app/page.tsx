@@ -108,49 +108,38 @@ export default function ExampurTestPrep() {
             </div>
           </div>
 
-          {/* Social Icons with WhatsApp underline hover effect */}
-          <div className="hidden lg:flex items-center gap-6">
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="relative group flex items-center gap-1.5 text-slate-700 hover:text-red-600 font-bold text-sm transition">
-              <div className="w-9 h-9 rounded-full bg-red-100 flex items-center justify-center text-red-600 shadow-sm group-hover:scale-110 transition">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              </div>
-              <span>YouTube</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-full"></span>
+          {/* Social Icons (Only Icons, No Text) with Universal WhatsApp Underline Hover */}
+          <div className="hidden lg:flex items-center gap-4">
+            <a href="https://youtube.com" target="_blank" rel="noreferrer" className="relative group p-2.5 rounded-full bg-red-100 text-red-600 hover:bg-red-600 hover:text-white shadow-sm transition transform hover:scale-110">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-red-600 transition-all duration-300 group-hover:w-3/4"></span>
             </a>
 
-            <a href="https://telegram.org" target="_blank" rel="noreferrer" className="relative group flex items-center gap-1.5 text-slate-700 hover:text-sky-600 font-bold text-sm transition">
-              <div className="w-9 h-9 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 shadow-sm group-hover:scale-110 transition">
-                <Send className="w-4 h-4" />
-              </div>
-              <span>Telegram</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-sky-600 transition-all duration-300 group-hover:w-full"></span>
+            <a href="https://telegram.org" target="_blank" rel="noreferrer" className="relative group p-2.5 rounded-full bg-sky-100 text-sky-600 hover:bg-sky-600 hover:text-white shadow-sm transition transform hover:scale-110">
+              <Send className="w-4 h-4" />
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-sky-600 transition-all duration-300 group-hover:w-3/4"></span>
             </a>
 
-            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="relative group flex items-center gap-1.5 text-slate-700 hover:text-pink-600 font-bold text-sm transition">
-              <div className="w-9 h-9 rounded-full bg-pink-100 flex items-center justify-center text-pink-600 shadow-sm group-hover:scale-110 transition">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </div>
-              <span>Instagram</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-pink-600 transition-all duration-300 group-hover:w-full"></span>
+            <a href="https://instagram.com" target="_blank" rel="noreferrer" className="relative group p-2.5 rounded-full bg-pink-100 text-pink-600 hover:bg-pink-600 hover:text-white shadow-sm transition transform hover:scale-110">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-pink-600 transition-all duration-300 group-hover:w-3/4"></span>
             </a>
 
-            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="relative group flex items-center gap-1.5 text-slate-700 hover:text-blue-600 font-bold text-sm transition">
-              <div className="w-9 h-9 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shadow-sm group-hover:scale-110 transition">
-                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-              </div>
-              <span>Facebook</span>
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            <a href="https://facebook.com" target="_blank" rel="noreferrer" className="relative group p-2.5 rounded-full bg-blue-100 text-blue-600 hover:bg-blue-600 hover:text-white shadow-sm transition transform hover:scale-110">
+              <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+              <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-3/4"></span>
             </a>
           </div>
 
-          {/* Right Auth Actions */}
+          {/* Right Auth Actions with Universal Hover Effect */}
           <div className="hidden md:flex items-center gap-3">
             <button className="relative group px-5 py-2.5 rounded-xl border-2 border-amber-500 text-amber-700 font-extrabold text-sm hover:bg-amber-500 hover:text-white transition shadow-sm overflow-hidden">
               <span className="relative z-10">Login</span>
               <span className="absolute bottom-0 left-0 w-full h-0 bg-amber-500 transition-all duration-300 group-hover:h-full -z-0"></span>
             </button>
-            <button className="relative group px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-extrabold text-sm shadow-lg shadow-amber-600/20 transition transform hover:-translate-y-0.5">
-              Create Free Account
+            <button className="relative group px-6 py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-700 hover:to-amber-700 text-white font-extrabold text-sm shadow-lg shadow-amber-600/20 transition transform hover:-translate-y-0.5 overflow-hidden">
+              <span className="relative z-10">Create Free Account</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-300 transition-all duration-300 transform translate-y-full group-hover:translate-y-0"></span>
             </button>
           </div>
 
@@ -163,6 +152,11 @@ export default function ExampurTestPrep() {
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#fdfbf7] border-b border-amber-200 px-4 pt-3 pb-6 space-y-3">
+            <div className="flex justify-center gap-4 py-2">
+              <a href="#" className="p-2.5 bg-red-100 text-red-600 rounded-full"><svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+              <a href="#" className="p-2.5 bg-sky-100 text-sky-600 rounded-full"><Send className="w-4 h-4"/></a>
+              <a href="#" className="p-2.5 bg-pink-100 text-pink-600 rounded-full"><svg className="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+            </div>
             <div className="pt-2 flex flex-col gap-2">
               <button className="w-full py-2.5 rounded-xl border-2 border-amber-500 text-amber-700 font-bold text-sm">Login</button>
               <button className="w-full py-2.5 rounded-xl bg-gradient-to-r from-red-600 to-amber-600 text-white font-bold text-sm shadow-md">Create Free Account</button>
@@ -272,13 +266,14 @@ export default function ExampurTestPrep() {
               <button 
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition ${
+                className={`relative group px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition overflow-hidden ${
                   selectedCategory === cat 
                     ? 'bg-amber-600 text-white shadow-md shadow-amber-600/20' 
                     : 'bg-white text-slate-600 border border-amber-200 hover:bg-amber-50'
                 }`}
               >
-                {cat}
+                <span className="relative z-10">{cat}</span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-400 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
               </button>
             ))}
           </div>
@@ -319,11 +314,13 @@ export default function ExampurTestPrep() {
               </div>
 
               <div className="pt-4 border-t border-amber-100 flex items-center gap-3">
-                <button onClick={() => alert(`Opening free demo for ${course.title}`)} className="flex-1 py-2.5 px-3 rounded-xl border border-amber-300 text-slate-700 font-bold text-xs hover:bg-amber-50 transition">
-                  {course.freePrice}
+                <button onClick={() => alert(`Opening free demo for ${course.title}`)} className="relative group flex-1 py-2.5 px-3 rounded-xl border border-amber-300 text-slate-700 font-bold text-xs hover:bg-amber-50 transition overflow-hidden">
+                  <span className="relative z-10">{course.freePrice}</span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-500 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </button>
-                <button onClick={() => alert(`Redirecting to checkout for ${course.title} at ${course.price}`)} className="flex-1 py-2.5 px-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1">
-                  BUY @ {course.price} <ArrowRight className="w-3.5 h-3.5" />
+                <button onClick={() => alert(`Redirecting to checkout for ${course.title} at ${course.price}`)} className="relative group flex-1 py-2.5 px-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs shadow-md transition flex items-center justify-center gap-1 overflow-hidden">
+                  <span className="relative z-10 flex items-center gap-1">BUY @ {course.price} <ArrowRight className="w-3.5 h-3.5" /></span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </button>
               </div>
             </div>
@@ -354,8 +351,9 @@ export default function ExampurTestPrep() {
             <span className="text-xs uppercase font-extrabold text-slate-400 tracking-wider">Starts at</span>
             <div className="text-4xl sm:text-5xl font-black text-amber-600 my-1">₹179</div>
             <span className="text-xs text-slate-500 font-medium block mb-6">Valid upto 365 Days (All Exams Included)</span>
-            <button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition">
-              Explore All Passes
+            <button className="relative group w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 rounded-xl shadow-lg transition overflow-hidden">
+              <span className="relative z-10">Explore All Passes</span>
+              <span className="absolute bottom-0 left-0 w-full h-1 bg-yellow-300 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
             </button>
             <span className="text-[11px] text-slate-400 mt-3 block">First pass purchase gets extra 15% off</span>
           </div>
