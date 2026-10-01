@@ -76,7 +76,7 @@ export default function ExampurTestPrep() {
     { title: "UPSSSC Junior Assistant Typing Skill Test Series", icon: "📜" },
     { title: "NCERT LDC English Typing Tests", icon: "📚" },
     { title: "Delhi High Court Junior Judicial Assistant (JJA)", icon: "⚖️" },
-    { title: "UP Police (UPPRPB) SI, ASI, Computer Operator", icon: "🛡️" },
+    { title: "UP Police (UPPRPB) SI, ASI, Computer Operator", icon: "🛡️️" },
     { title: "SSC CHSL 2024 Typing Test Series", icon: "💻" },
     { title: "Delhi Police Typing Course Test Series", icon: "🚨" },
     { title: "DDA JSA Typing Practice Test Series", icon: "🏢" },
@@ -90,7 +90,7 @@ export default function ExampurTestPrep() {
     { title: "Delhi Police AWO TPO Typing Test Course", icon: "🚨" },
     { title: "BSF Head Constable (Ministerial) Typing Test Courses", icon: "🎖️" },
     { title: "CRPF HCM typing paragraph pdf (Download 800+)", icon: "📄" },
-    { title: "Supreme Court Junior Court Assistant (JCA) Typing tests", icon: "🏛️" },
+    { title: "Supreme Court Junior Court Assistant (JCA) Typing tests", icon: "🏛️️" },
     { title: "JNU Junior Assistant Typing Test Course", icon: "🎓" },
     { title: "EPFO Social Security Assistant (SSA) Typing Course", icon: "🏦" },
     { title: "AIIMS CRE English Typing Skill Test", icon: "🏥" },
@@ -104,7 +104,7 @@ export default function ExampurTestPrep() {
   const detailedCourses = [
     { title: "KVS JSA Typing Practice Test Series", tests: "800+ Tests", time: "70 Days", price: "₹159", freePrice: "₹79", tag: "Popular", icon: "🏫", users: "14,809" },
     { title: "Subordinate Courts Punjab & Haryana (S.S.S.C.) Clerk Typing", tests: "900+ Tests", time: "70 Days", price: "₹159", freePrice: "₹89", tag: "High Demand", icon: "⚖️", users: "6,730" },
-    { title: "DSSSB Junior Assistant / LDC / DASS IV Typing Tests", tests: "700+ Tests", time: "70 Days", price: "₹159", freePrice: "Free Demo", tag: "Exam Oriented", icon: "🏛️", users: "17,430" },
+    { title: "DSSSB Junior Assistant / LDC / DASS IV Typing Tests", tests: "700+ Tests", time: "70 Days", price: "₹159", freePrice: "Free Demo", tag: "Exam Oriented", icon: "🏛️️", users: "17,430" },
     { title: "UPSSSC Junior Assistant Typing Skill Test Series", tests: "900+ Tests", time: "30 Days", price: "₹79", freePrice: "Free Demo", tag: "Bilingual", icon: "📜", users: "69,577" },
     { title: "SSC CGL Typing Course Test Series", tests: "1000+ Tests", time: "30 Days", price: "₹79", freePrice: "Free", tag: "TCS Interface", icon: "📊", users: "10,563" },
     { title: "SSC CHSL 2024 Typing Test Series", tests: "900+ Tests", time: "100 Days", price: "₹239", freePrice: "Free", tag: "Best Seller", icon: "💻", users: "2,797" },
@@ -258,7 +258,7 @@ export default function ExampurTestPrep() {
       </section>
 
       {/* ======================================================== */}
-      {/* ALL COURSES MINI CARDS (SHARP RECTANGULAR EDGES + ORANGE GLOW SHADOW) */}
+      {/* ALL COURSES MINI CARDS (EXACT TESTMENTOR STYLE: SHARP, NO BORDER, SOFT SHADOW HOVER) */}
       {/* ======================================================== */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
@@ -271,12 +271,12 @@ export default function ExampurTestPrep() {
             <div 
               key={idx} 
               onClick={() => alert(`Opening ${exam.title}`)}
-              className="relative bg-white rounded-none p-5 border-2 border-amber-200/90 shadow-sm hover:shadow-2xl hover:shadow-amber-500/30 hover:border-amber-500 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group transform hover:-translate-y-2 hover:scale-105 overflow-hidden"
+              className="relative bg-white rounded-none p-5 shadow-sm hover:shadow-2xl hover:shadow-slate-300 transition-all duration-300 flex flex-col items-center text-center cursor-pointer group transform hover:-translate-y-2 hover:scale-105 overflow-hidden"
             >
               {/* Orange Horizontal Bottom Line on Hover */}
               <span className="absolute bottom-0 left-0 w-full h-1.5 bg-amber-500 transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
 
-              <div className="w-14 h-14 rounded-none bg-amber-50 border border-amber-200 flex items-center justify-center text-3xl mb-3 shadow-inner group-hover:scale-110 transition duration-300">
+              <div className="w-14 h-14 rounded-none bg-amber-50 border border-amber-100 flex items-center justify-center text-3xl mb-3 shadow-inner group-hover:scale-110 transition duration-300">
                 {exam.icon}
               </div>
               <h4 className="text-xs font-bold text-slate-800 group-hover:text-amber-700 transition line-clamp-3 leading-snug">
